@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>Recipe Share</title>
+</head>
+
+<body class="m-5">
+    <div class="d-flex justify-content-between">
+        <h1 class="">Welcome, {{user.first_name}}</h1>
+        <div class="d-flex justify-content-end align-items-center">
+            <a href="/recipes" class="btn btn-outline-success btn-sm mx-5">Back to All Recipes</a>
+            <a href="/logout" class="btn btn-outline-danger btn-sm">Logout</a>
+        </div>
+    </div>
+    <div class="d-flex justify-content-between align-items-center my-4">
+        <h1 class="">{{recipe.name}}</h1>
+        <h5 class="mx-5">Posted By: {{recipe.first_name}}</h5>
+    </div>
+    <div class=" row">
+        <!-- <div id="recipes" class="d-flex justify-content-between row"> -->
+        <table class="border border-dark">
+            <tr >
+                <th class="p-2">Description:</th>
+                <td>{{recipe.description}}</td>
+            </tr>
+            <tr>
+                <th class="p-2 col-3">30 Minutes or Less:</th>
+                <td class="pe-2">{% if recipe.under_30 == 1 %}Yes{% elif recipe.under_30 == 0 %}Nah{% endif %}</td>
+            </tr>
+            <tr>
+                <th class="p-2">Instructions:</th>
+                <td class="pe-2">{{recipe.instructions}}</td>
+            </tr>
+            <tr>
+                <th class="p-2">Date Made:</th> 
+                <td>{{recipe.date_made.strftime('%B %d, %Y')}}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
